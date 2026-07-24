@@ -6,166 +6,166 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#1a1a2e">
+<meta name="theme-color" content="#f0f2f5">
 <title>G BCCI Tournament Scorer</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html { -webkit-text-size-adjust: 100%; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; min-height: -webkit-fill-available; overscroll-behavior: none; -webkit-overflow-scrolling: touch; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #2d3436; min-height: 100vh; min-height: -webkit-fill-available; overscroll-behavior: none; -webkit-overflow-scrolling: touch; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
 .container { max-width: 600px; margin: 0 auto; padding: 12px; padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
-h1 { text-align: center; padding: 16px 0; font-size: 1.4em; color: #e94560; }
+h1 { text-align: center; padding: 16px 0; font-size: 1.4em; color: #d63031; }
 
 /* Setup Screen */
-#setup { background: #16213e; border-radius: 12px; padding: 24px; display: none; }
-#setup h2 { margin-bottom: 16px; color: #e94560; }
+#setup { background: #ffffff; border-radius: 12px; padding: 24px; display: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+#setup h2 { margin-bottom: 16px; color: #d63031; }
 .form-group { margin-bottom: 14px; }
-.form-group label { display: block; margin-bottom: 4px; font-size: 0.9em; color: #aaa; }
-.form-group input, .form-group select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #333; background: #0f3460; color: #eee; font-size: 16px; /* prevents iOS auto-zoom */ -webkit-appearance: none; appearance: none; }
+.form-group label { display: block; margin-bottom: 4px; font-size: 0.9em; color: #636e72; }
+.form-group input, .form-group select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #dfe6e9; background: #f8f9fa; color: #2d3436; font-size: 16px; /* prevents iOS auto-zoom */ -webkit-appearance: none; appearance: none; }
 .btn { padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 1em; font-weight: 600; transition: background 0.2s; }
-.btn-primary { background: #e94560; color: #fff; width: 100%; margin-top: 8px; }
-.btn-primary:hover { background: #c73550; }
+.btn-primary { background: #d63031; color: #fff; width: 100%; margin-top: 8px; }
+.btn-primary:hover { background: #b71c1c; }
 
 /* Scoreboard */
 #scoreboard { display: none; }
-.score-header { background: linear-gradient(135deg, #0f3460, #16213e); border-radius: 12px; padding: 16px; margin-bottom: 12px; text-align: center; }
-.team-name { font-size: 1.1em; color: #e94560; font-weight: 700; }
+.score-header { background: linear-gradient(135deg, #ffffff, #f8f9fa); border-radius: 12px; padding: 16px; margin-bottom: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.team-name { font-size: 1.1em; color: #d63031; font-weight: 700; }
 .score-big { font-size: 3em; font-weight: 800; margin: 4px 0; }
-.score-info { font-size: 0.9em; color: #aaa; }
-.target-info { font-size: 0.95em; color: #ffd700; margin-top: 6px; }
+.score-info { font-size: 0.9em; color: #636e72; }
+.target-info { font-size: 0.95em; color: #e17055; margin-top: 6px; }
 
 /* Batsmen & Bowler */
-.players-panel { background: #16213e; border-radius: 12px; padding: 14px; margin-bottom: 12px; }
-.players-panel h3 { font-size: 0.85em; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-.player-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #1a1a3e; }
+.players-panel { background: #ffffff; border-radius: 12px; padding: 14px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.players-panel h3 { font-size: 0.85em; color: #636e72; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.player-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #dfe6e9; }
 .player-row:last-child { border-bottom: none; }
 .player-name { font-weight: 600; }
-.player-name.on-strike { color: #e94560; }
-.player-stats { color: #aaa; font-size: 0.9em; }
+.player-name.on-strike { color: #d63031; }
+.player-stats { color: #636e72; font-size: 0.9em; }
 
 /* Scoring Buttons */
 .scoring-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
 .score-btn { padding: 16px 8px; border: none; border-radius: 10px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: transform 0.1s, background 0.2s; }
 .score-btn:active { transform: scale(0.95); }
 .score-btn { -webkit-user-select: none; user-select: none; touch-action: manipulation; }
-.run-btn { background: #0f3460; color: #eee; }
-.run-btn:hover { background: #1a4a8a; }
-.wicket-btn { background: #c0392b; color: #fff; }
-.wicket-btn:hover { background: #a93226; }
-.extra-btn { background: #2c3e50; color: #f39c12; }
-.extra-btn:hover { background: #34495e; }
+.run-btn { background: #dfe6e9; color: #2d3436; }
+.run-btn:hover { background: #b2bec3; }
+.wicket-btn { background: #ff7675; color: #fff; }
+.wicket-btn:hover { background: #d63031; }
+.extra-btn { background: #ffeaa7; color: #d35400; }
+.extra-btn:hover { background: #fdcb6e; }
 
 /* Extras sub-panel */
-.extras-panel { display: none; background: #16213e; border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+.extras-panel { display: none; background: #ffffff; border-radius: 12px; padding: 14px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 .extras-panel.active { display: block; }
-.extras-panel h3 { margin-bottom: 10px; color: #f39c12; }
+.extras-panel h3 { margin-bottom: 10px; color: #e17055; }
 .extras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .extras-grid .score-btn { font-size: 0.9em; padding: 12px 8px; }
 
 /* Wicket sub-panel */
-.wicket-panel { display: none; background: #16213e; border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+.wicket-panel { display: none; background: #ffffff; border-radius: 12px; padding: 14px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 .wicket-panel.active { display: block; }
-.wicket-panel h3 { margin-bottom: 10px; color: #c0392b; }
+.wicket-panel h3 { margin-bottom: 10px; color: #d63031; }
 .wicket-types { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-.wicket-type-btn { padding: 12px; border: none; border-radius: 8px; background: #3d1f1f; color: #e94560; font-size: 0.9em; font-weight: 600; cursor: pointer; }
-.wicket-type-btn:hover { background: #5a2a2a; }
+.wicket-type-btn { padding: 12px; border: none; border-radius: 8px; background: #ffeef0; color: #d63031; font-size: 0.9em; font-weight: 600; cursor: pointer; }
+.wicket-type-btn:hover { background: #ffcccc; }
 
 /* Actions */
 .actions { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
 .btn-sm { padding: 8px 14px; font-size: 0.85em; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; }
-.btn-undo { background: #2c3e50; color: #e74c3c; }
-.btn-swap { background: #2c3e50; color: #3498db; }
-.btn-new-bowler { background: #2c3e50; color: #2ecc71; }
-.btn-end-innings { background: #2c3e50; color: #f39c12; }
+.btn-undo { background: #ffeef0; color: #d63031; }
+.btn-swap { background: #e8f4fd; color: #0984e3; }
+.btn-new-bowler { background: #e8f8f0; color: #00b894; }
+.btn-end-innings { background: #fff3e0; color: #e17055; }
 
 /* Over summary */
-.over-summary { background: #16213e; border-radius: 12px; padding: 14px; margin-bottom: 12px; }
-.over-summary h3 { font-size: 0.85em; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.over-summary { background: #ffffff; border-radius: 12px; padding: 14px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.over-summary h3 { font-size: 0.85em; color: #636e72; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
 .ball-list { display: flex; gap: 6px; flex-wrap: wrap; }
 .ball { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em; font-weight: 700; }
-.ball-run { background: #0f3460; color: #eee; }
-.ball-dot { background: #333; color: #888; }
-.ball-boundary { background: #27ae60; color: #fff; }
-.ball-six { background: #8e44ad; color: #fff; }
-.ball-wicket { background: #c0392b; color: #fff; }
-.ball-extra { background: #f39c12; color: #1a1a2e; }
+.ball-run { background: #74b9ff; color: #fff; }
+.ball-dot { background: #dfe6e9; color: #636e72; }
+.ball-boundary { background: #00b894; color: #fff; }
+.ball-six { background: #a29bfe; color: #fff; }
+.ball-wicket { background: #d63031; color: #fff; }
+.ball-extra { background: #fdcb6e; color: #2d3436; }
 
 /* Partnership */
-.partnership { font-size: 0.85em; color: #888; margin-top: 4px; }
+.partnership { font-size: 0.85em; color: #636e72; margin-top: 4px; }
 
 /* Modal */
-.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 100; align-items: center; justify-content: center; }
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
 .modal-overlay.active { display: flex; }
-.modal { background: #16213e; border-radius: 12px; padding: 24px; width: 90%; max-width: 400px; }
-.modal h3 { margin-bottom: 16px; color: #e94560; }
-.modal input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #333; background: #0f3460; color: #eee; font-size: 1em; margin-bottom: 12px; }
+.modal { background: #ffffff; border-radius: 12px; padding: 24px; width: 90%; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.modal h3 { margin-bottom: 16px; color: #d63031; }
+.modal input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #dfe6e9; background: #f8f9fa; color: #2d3436; font-size: 1em; margin-bottom: 12px; }
 .modal .btn { margin-top: 4px; }
 
 /* Result */
-.result-banner { background: linear-gradient(135deg, #e94560, #c73550); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 12px; display: none; }
+.result-banner { background: linear-gradient(135deg, #d63031, #e17055); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 12px; display: none; color: #fff; }
 .result-banner.active { display: block; }
 .result-banner h2 { font-size: 1.3em; }
 
 /* Player Roster */
 #playerRoster { display: none; }
-.roster-section { background: #16213e; border-radius: 12px; padding: 16px; margin-bottom: 14px; }
-.roster-section h3 { color: #e94560; margin-bottom: 10px; font-size: 1em; }
+.roster-section { background: #ffffff; border-radius: 12px; padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.roster-section h3 { color: #d63031; margin-bottom: 10px; font-size: 1em; }
 .roster-add { display: flex; gap: 8px; margin-bottom: 10px; }
-.roster-add input { flex: 1; padding: 9px; border-radius: 8px; border: 1px solid #333; background: #0f3460; color: #eee; font-size: 0.95em; }
-.roster-add button { padding: 9px 16px; border: none; border-radius: 8px; background: #e94560; color: #fff; font-weight: 600; cursor: pointer; white-space: nowrap; }
-.roster-add button:hover { background: #c73550; }
+.roster-add input { flex: 1; padding: 9px; border-radius: 8px; border: 1px solid #dfe6e9; background: #f8f9fa; color: #2d3436; font-size: 0.95em; }
+.roster-add button { padding: 9px 16px; border: none; border-radius: 8px; background: #d63031; color: #fff; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.roster-add button:hover { background: #b71c1c; }
 .roster-list { max-height: 200px; overflow-y: auto; }
-.roster-player { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-bottom: 1px solid #1a1a3e; font-size: 0.95em; }
+.roster-player { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-bottom: 1px solid #dfe6e9; font-size: 0.95em; }
 .roster-player:last-child { border-bottom: none; }
-.roster-player input[type="checkbox"] { accent-color: #e94560; width: 18px; height: 18px; cursor: pointer; }
-.roster-player .remove-player { margin-left: auto; background: none; border: none; color: #c0392b; cursor: pointer; font-size: 1.1em; padding: 0 4px; }
+.roster-player input[type="checkbox"] { accent-color: #d63031; width: 18px; height: 18px; cursor: pointer; }
+.roster-player .remove-player { margin-left: auto; background: none; border: none; color: #d63031; cursor: pointer; font-size: 1.1em; padding: 0 4px; }
 .roster-player .remove-player:hover { color: #e74c3c; }
-.roster-count { font-size: 0.8em; color: #888; margin-top: 6px; }
+.roster-count { font-size: 0.8em; color: #636e72; margin-top: 6px; }
 
 /* Team Selection (striker/nonstriker/bowler) */
 #teamSelection { display: none; }
 .selection-group { margin-bottom: 14px; }
-.selection-group label { display: block; margin-bottom: 4px; font-size: 0.9em; color: #aaa; }
-.selection-group select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #333; background: #0f3460; color: #eee; font-size: 1em; }
+.selection-group label { display: block; margin-bottom: 4px; font-size: 0.9em; color: #636e72; }
+.selection-group select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #dfe6e9; background: #f8f9fa; color: #2d3436; font-size: 1em; }
 .nav-buttons { display: flex; gap: 8px; margin-top: 12px; }
 .nav-buttons .btn { flex: 1; }
-.btn-secondary { background: #2c3e50; color: #aaa; width: 100%; margin-top: 8px; }
-.btn-secondary:hover { background: #34495e; color: #eee; }
+.btn-secondary { background: #dfe6e9; color: #636e72; width: 100%; margin-top: 8px; }
+.btn-secondary:hover { background: #b2bec3; color: #2d3436; }
 
 /* Sync/Share bar */
 .sync-bar { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-.btn-share { background: #1e6f5c; color: #fff; }
-.btn-share:hover { background: #289672; }
-.btn-load { background: #0f3460; color: #3498db; }
-.btn-load:hover { background: #1a4a8a; }
-.btn-reset { background: #2c3e50; color: #e74c3c; }
-.btn-reset:hover { background: #3d5166; }
-.sync-status { font-size: 0.75em; color: #888; text-align: center; margin-bottom: 8px; }
-.toast { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); background: #27ae60; color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 0.9em; font-weight: 600; z-index: 200; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+.btn-share { background: #00b894; color: #fff; }
+.btn-share:hover { background: #00a885; }
+.btn-load { background: #e8f4fd; color: #0984e3; }
+.btn-load:hover { background: #d4ecfa; }
+.btn-reset { background: #ffeef0; color: #d63031; }
+.btn-reset:hover { background: #ffcccc; }
+.sync-status { font-size: 0.75em; color: #636e72; text-align: center; margin-bottom: 8px; }
+.toast { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); background: #00b894; color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 0.9em; font-weight: 600; z-index: 200; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
 .toast.active { opacity: 1; }
-.toast.error { background: #c0392b; }
+.toast.error { background: #d63031; }
 
 /* Team Assignment */
-.team-assign-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid #1a1a3e; font-size: 0.95em; }
+.team-assign-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid #dfe6e9; font-size: 0.95em; }
 .team-assign-row:last-child { border-bottom: none; }
 .team-assign-row .player-label { flex: 1; font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.team-assign-row .remove-player { background: none; border: none; color: #c0392b; cursor: pointer; font-size: 1.1em; padding: 0 4px; flex-shrink: 0; }
+.team-assign-row .remove-player { background: none; border: none; color: #d63031; cursor: pointer; font-size: 1.1em; padding: 0 4px; flex-shrink: 0; }
 .team-assign-btns { display: flex; gap: 4px; flex-shrink: 0; }
 .team-assign-btns button { padding: 4px 10px; border: none; border-radius: 6px; font-size: 0.75em; font-weight: 700; cursor: pointer; transition: background 0.15s; }
-.team-btn-1 { background: #0f3460; color: #3498db; }
-.team-btn-1.active { background: #3498db; color: #fff; }
-.team-btn-2 { background: #3d1f1f; color: #e94560; }
-.team-btn-2.active { background: #e94560; color: #fff; }
-.team-btn-both { background: #2c3e50; color: #f39c12; }
-.team-btn-both.active { background: #f39c12; color: #1a1a2e; }
-.team-btn-none { background: #2c3e50; color: #888; }
-.team-summary { font-size: 0.82em; color: #888; margin-top: 8px; padding: 6px 10px; background: #0f3460; border-radius: 6px; }
-.team-summary strong { color: #eee; }
+.team-btn-1 { background: #e8f4fd; color: #0984e3; }
+.team-btn-1.active { background: #0984e3; color: #fff; }
+.team-btn-2 { background: #ffeef0; color: #d63031; }
+.team-btn-2.active { background: #d63031; color: #fff; }
+.team-btn-both { background: #fff3e0; color: #e17055; }
+.team-btn-both.active { background: #e17055; color: #fff; }
+.team-btn-none { background: #dfe6e9; color: #636e72; }
+.team-summary { font-size: 0.82em; color: #636e72; margin-top: 8px; padding: 6px 10px; background: #f8f9fa; border-radius: 6px; }
+.team-summary strong { color: #2d3436; }
 
 /* Cloud Sync */
-.btn-cloud { background: #1e6f5c; color: #fff; }
-.btn-cloud:hover { background: #289672; }
-.cloud-status { font-size: 0.75em; color: #888; text-align: center; margin-bottom: 4px; }
-.cloud-status.connected { color: #2ecc71; }
+.btn-cloud { background: #00b894; color: #fff; }
+.btn-cloud:hover { background: #00a885; }
+.cloud-status { font-size: 0.75em; color: #636e72; text-align: center; margin-bottom: 4px; }
+.cloud-status.connected { color: #00b894; }
 .btn-github { background: #238636; color: #fff; }
 .btn-github:hover { background: #2ea043; }
 
@@ -175,56 +175,58 @@ select { font-size: 16px; /* prevent iOS zoom */ }
 
 /* Match History */
 #matchHistory { display: none; }
-.history-section { background: #16213e; border-radius: 12px; padding: 16px; margin-bottom: 14px; }
-.history-section h3 { color: #e94560; margin-bottom: 10px; font-size: 1em; }
+.history-section { background: #ffffff; border-radius: 12px; padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.history-section h3 { color: #d63031; margin-bottom: 10px; font-size: 1em; }
 .history-tabs { display: flex; gap: 6px; margin-bottom: 14px; }
-.history-tab { flex: 1; padding: 10px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.9em; background: #0f3460; color: #aaa; }
-.history-tab.active { background: #e94560; color: #fff; }
-.match-card { background: #0f3460; border-radius: 10px; padding: 14px; margin-bottom: 10px; cursor: pointer; transition: background 0.15s; }
-.match-card:hover { background: #1a4a8a; }
-.match-card .match-date { font-size: 0.75em; color: #888; margin-bottom: 4px; }
-.match-card .match-teams { font-weight: 700; color: #eee; font-size: 1em; margin-bottom: 4px; }
-.match-card .match-score { font-size: 0.9em; color: #aaa; }
-.match-card .match-result { font-size: 0.85em; color: #e94560; font-weight: 600; margin-top: 4px; }
+.history-tab { flex: 1; padding: 10px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.9em; background: #dfe6e9; color: #636e72; }
+.history-tab.active { background: #d63031; color: #fff; }
+.match-card { background: #f8f9fa; border-radius: 10px; padding: 14px; margin-bottom: 10px; cursor: pointer; transition: background 0.15s; border: 1px solid #dfe6e9; }
+.match-card:hover { background: #dfe6e9; }
+.match-card .match-date { font-size: 0.75em; color: #636e72; margin-bottom: 4px; }
+.match-card .match-teams { font-weight: 700; color: #2d3436; font-size: 1em; margin-bottom: 4px; }
+.match-card .match-score { font-size: 0.9em; color: #636e72; }
+.match-card .match-result { font-size: 0.85em; color: #d63031; font-weight: 600; margin-top: 4px; }
 .scorecard-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
-.scorecard-table th { text-align: left; padding: 6px 8px; border-bottom: 2px solid #e94560; color: #e94560; font-size: 0.8em; text-transform: uppercase; }
-.scorecard-table td { padding: 5px 8px; border-bottom: 1px solid #1a1a3e; color: #ccc; }
+.scorecard-table th { text-align: left; padding: 6px 8px; border-bottom: 2px solid #d63031; color: #d63031; font-size: 0.8em; text-transform: uppercase; }
+.scorecard-table td { padding: 5px 8px; border-bottom: 1px solid #dfe6e9; color: #555; }
 .scorecard-table tr:last-child td { border-bottom: none; }
-.scorecard-table .player-out { color: #888; font-size: 0.8em; }
-.scorecard-table .total-row td { border-top: 2px solid #333; font-weight: 700; color: #eee; }
+.scorecard-table .player-out { color: #636e72; font-size: 0.8em; }
+.scorecard-table .total-row td { border-top: 2px solid #b2bec3; font-weight: 700; color: #2d3436; }
 .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.stat-card { background: #0f3460; border-radius: 10px; padding: 12px; text-align: center; }
-.stat-card .stat-value { font-size: 1.5em; font-weight: 800; color: #e94560; }
-.stat-card .stat-label { font-size: 0.75em; color: #888; margin-top: 2px; }
-.stat-card .stat-name { font-weight: 700; color: #eee; font-size: 0.9em; margin-bottom: 2px; }
-.no-history { text-align: center; color: #666; padding: 30px; font-size: 0.95em; }
-.btn-danger-sm { background: #3d1f1f; color: #e94560; padding: 6px 14px; border: none; border-radius: 6px; font-size: 0.8em; font-weight: 600; cursor: pointer; }
-.btn-danger-sm:hover { background: #5a2a2a; }
+.stat-card { background: #f8f9fa; border-radius: 10px; padding: 12px; text-align: center; border: 1px solid #dfe6e9; }
+.stat-card .stat-value { font-size: 1.5em; font-weight: 800; color: #d63031; }
+.stat-card .stat-label { font-size: 0.75em; color: #636e72; margin-top: 2px; }
+.stat-card .stat-name { font-weight: 700; color: #2d3436; font-size: 0.9em; margin-bottom: 2px; }
+.no-history { text-align: center; color: #999; padding: 30px; font-size: 0.95em; }
+.btn-danger-sm { background: #ffeef0; color: #d63031; padding: 6px 14px; border: none; border-radius: 6px; font-size: 0.8em; font-weight: 600; cursor: pointer; }
+.btn-danger-sm:hover { background: #ffcccc; }
 .history-sync-bar { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
 .history-sync-bar .btn { flex: 1; min-width: 120px; }
-.btn-sync { background: #1e6f5c; color: #fff; }
-.btn-sync:hover { background: #289672; }
-.btn-export { background: #0f3460; color: #3498db; }
-.btn-export:hover { background: #1a4a8a; }
-.btn-import { background: #2c3e50; color: #f39c12; }
-.btn-import:hover { background: #34495e; }
-.history-cloud-status { font-size: 0.75em; color: #888; text-align: center; margin-bottom: 10px; }
-.history-cloud-status.synced { color: #2ecc71; }
+.btn-sync { background: #00b894; color: #fff; }
+.btn-sync:hover { background: #00a885; }
+.btn-export { background: #e8f4fd; color: #0984e3; }
+.btn-export:hover { background: #d4ecfa; }
+.btn-import { background: #fff3e0; color: #e17055; }
+.btn-import:hover { background: #ffeaa7; }
+.history-cloud-status { font-size: 0.75em; color: #636e72; text-align: center; margin-bottom: 10px; }
+.history-cloud-status.synced { color: #00b894; }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 </head>
 <body>
 <div class="container">
 <h1>🏏 G BCCI Tournament Scorer</h1>
 
 <div class="sync-bar">
-<button class="btn btn-sm btn-share" onclick="shareState()">📤 Share Code</button>
-<button class="btn btn-sm btn-load" onclick="loadSharedState()">📥 Paste Code</button>
-<button class="btn btn-sm btn-sm" style="background:#2c3e50;color:#f39c12;" onclick="showMatchHistory()">📊 History</button>
+<button class="btn btn-sm btn-share" onclick="createLiveRoom()">🟢 Go Live</button>
+<button class="btn btn-sm btn-load" onclick="joinLiveRoom()">📡 Join Room</button>
+<button class="btn btn-sm btn-sm" style="background:#dfe6e9;color:#e17055;" onclick="showMatchHistory()">📊 History</button>
 <button class="btn btn-sm btn-reset" onclick="resetMatch()">🗑 New</button>
 </div>
 <div class="cloud-status" id="cloudStatus"></div>
-<div class="sync-status" id="syncStatus">Auto-saved locally</div>
+<div class="sync-status" id="syncStatus">Local only — tap "Go Live" to sync</div>
 
 <!-- Setup Screen -->
 <div id="setup">
@@ -260,7 +262,7 @@ select { font-size: 16px; /* prevent iOS zoom */ }
 
   <!-- Player Roster Screen -->
   <div id="playerRoster">
-    <h2 style="color:#e94560; margin-bottom:16px;">Player Pool & Teams</h2>
+    <h2 style="color:#d63031; margin-bottom:16px;">Player Pool & Teams</h2>
 
     <!-- Add Players -->
     <div class="roster-section">
@@ -291,7 +293,7 @@ select { font-size: 16px; /* prevent iOS zoom */ }
 
   <!-- Team Selection Screen (pick striker/non-striker/bowler) -->
   <div id="teamSelection">
-    <h2 style="color:#e94560; margin-bottom:16px;">Select Openers & Bowler</h2>
+    <h2 style="color:#d63031; margin-bottom:16px;">Select Openers & Bowler</h2>
     <div class="roster-section">
       <h3 id="selBattingTeam">Batting Team</h3>
       <div class="selection-group">
@@ -409,7 +411,7 @@ select { font-size: 16px; /* prevent iOS zoom */ }
 <div class="modal-overlay" id="newBatsmanModal">
 <div class="modal">
 <h3>New Batsman</h3>
-<select id="newBatsmanSelect" style="width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#0f3460;color:#eee;font-size:1em;margin-bottom:12px;"></select>
+<select id="newBatsmanSelect" style="width:100%;padding:10px;border-radius:8px;border:1px solid #dfe6e9;background:#f8f9fa;color:#2d3436;font-size:1em;margin-bottom:12px;"></select>
 <button class="btn btn-primary" onclick="confirmNewBatsman()">OK</button>
 </div>
 </div>
@@ -418,7 +420,7 @@ select { font-size: 16px; /* prevent iOS zoom */ }
 <div class="modal-overlay" id="newBowlerModal">
 <div class="modal">
 <h3>New Bowler</h3>
-<select id="newBowlerSelect" style="width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#0f3460;color:#eee;font-size:1em;margin-bottom:12px;"></select>
+<select id="newBowlerSelect" style="width:100%;padding:10px;border-radius:8px;border:1px solid #dfe6e9;background:#f8f9fa;color:#2d3436;font-size:1em;margin-bottom:12px;"></select>
 <button class="btn btn-primary" onclick="confirmNewBowler()">OK</button>
 </div>
 </div>
@@ -428,19 +430,18 @@ select { font-size: 16px; /* prevent iOS zoom */ }
 <div class="modal">
 <h3>2nd Innings Setup</h3>
 <p style="color:#aaa; margin-bottom:12px">Target: <span id="inningsTarget"></span></p>
-<div class="selection-group"><label style="color:#aaa;">Striker</label><select id="inn2Striker" style="width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#0f3460;color:#eee;font-size:1em;margin-bottom:8px;"></select></div>
-<div class="selection-group"><label style="color:#aaa;">Non-Striker</label><select id="inn2NonStriker" style="width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#0f3460;color:#eee;font-size:1em;margin-bottom:8px;"></select></div>
-<div class="selection-group"><label style="color:#aaa;">Bowler</label><select id="inn2Bowler" style="width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#0f3460;color:#eee;font-size:1em;margin-bottom:8px;"></select></div>
+<div class="selection-group"><label style="color:#636e72;">Striker</label><select id="inn2Striker" style="width:100%;padding:10px;border-radius:8px;border:1px solid #dfe6e9;background:#f8f9fa;color:#2d3436;font-size:1em;margin-bottom:8px;"></select></div>
+<div class="selection-group"><label style="color:#636e72;">Non-Striker</label><select id="inn2NonStriker" style="width:100%;padding:10px;border-radius:8px;border:1px solid #dfe6e9;background:#f8f9fa;color:#2d3436;font-size:1em;margin-bottom:8px;"></select></div>
+<div class="selection-group"><label style="color:#636e72;">Bowler</label><select id="inn2Bowler" style="width:100%;padding:10px;border-radius:8px;border:1px solid #dfe6e9;background:#f8f9fa;color:#2d3436;font-size:1em;margin-bottom:8px;"></select></div>
 <button class="btn btn-primary" onclick="startSecondInnings()">Start 2nd Innings</button>
 </div>
 </div>
 </div>
 
 <div id="matchHistory">
-  <h2 style="color:#e94560; margin-bottom:16px;">📊 Match History</h2>
+  <h2 style="color:#d63031; margin-bottom:16px;">📊 Match History</h2>
   <div class="history-sync-bar">
-    <button class="btn btn-sm btn-github" onclick="syncHistoryToGitHub()">⬆️ Push to GitHub</button>
-    <button class="btn btn-sm btn-github" onclick="pullHistoryFromGitHub()" style="background:#0f3460;color:#2ecc71;">⬇️ Pull from GitHub</button>
+    <button class="btn btn-sm btn-sync" onclick="syncHistoryToFirebase()">🔄 Sync All</button>
     <button class="btn btn-sm btn-export" onclick="exportHistory()">📥 Export File</button>
     <button class="btn btn-sm btn-import" onclick="document.getElementById('importFileInput').click()">📤 Import File</button>
     <input type="file" id="importFileInput" accept=".json" style="display:none" onchange="importHistory(event)">
@@ -1123,7 +1124,171 @@ function showToast(msg, isError) {
 // --- localStorage Persistence ---
 const STORAGE_KEY = 'cricketScorer';
 
-function autoSave() {
+// --- Firebase Realtime Sync ---
+const firebaseConfig = {
+  apiKey: "AIzaSyDZZ8j8ToovKSxdDxjJ1XpPjdhmMqCVcpM",
+  authDomain: "g-bcci.firebaseapp.com",
+  databaseURL: "https://g-bcci-default-rtdb.firebaseio.com",
+  projectId: "g-bcci",
+  storageBucket: "g-bcci.firebasestorage.app",
+  messagingSenderId: "413229740746",
+  appId: "1:413229740746:web:6763dd41b4f2a7913c3a33"
+};
+firebase.initializeApp(firebaseConfig);
+const fbDb = firebase.database();
+
+let liveRoomId = null;
+let liveRef = null;
+let isSyncing = false; // prevent echo loops
+let lastSyncTime = 0;
+
+function generateRoomId() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let id = '';
+  for (let i = 0; i < 5; i++) id += chars[Math.floor(Math.random() * chars.length)];
+  return id;
+}
+
+function createLiveRoom() {
+  if (liveRoomId) {
+    // Already live — show room code
+    prompt('Share this room code with friends:', liveRoomId);
+    return;
+  }
+  const roomId = generateRoomId();
+  joinRoom(roomId, true);
+}
+
+function joinLiveRoom() {
+  const code = prompt('Enter room code:');
+  if (!code || !code.trim()) return;
+  joinRoom(code.trim().toUpperCase(), false);
+}
+
+function joinRoom(roomId, isCreator) {
+  // Detach previous listener
+  if (liveRef) liveRef.off();
+
+  liveRoomId = roomId;
+  liveRef = fbDb.ref('rooms/' + roomId);
+  localStorage.setItem('cricketScorer_room', roomId);
+
+  // Update UI
+  document.getElementById('cloudStatus').textContent = '🟢 Live Room: ' + roomId;
+  document.getElementById('cloudStatus').className = 'cloud-status connected';
+
+  if (isCreator) {
+    // Push current state immediately
+    pushStateToFirebase();
+    showToast('Live! Room: ' + roomId + ' — share this code');
+    prompt('Share this room code with friends:', roomId);
+  } else {
+    showToast('Joined room: ' + roomId);
+  }
+
+  // Listen for real-time changes
+  liveRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    if (!data) return;
+    // Skip if this update was triggered by us within last 1s
+    if (isSyncing) return;
+    if (Date.now() - lastSyncTime < 800) return;
+
+    // Apply remote state
+    applyRemoteState(data);
+  });
+
+  updateSyncStatusUI();
+}
+
+function pushStateToFirebase() {
+  if (!liveRef) return;
+  isSyncing = true;
+  lastSyncTime = Date.now();
+
+  const state = {
+    match: match,
+    history: history,
+    roster: roster,
+    playing: playing,
+    playerPool: playerPool,
+    screen: getCurrentScreen(),
+    version: 3,
+    updatedAt: Date.now(),
+    updatedBy: getDeviceId()
+  };
+
+  liveRef.set(state).then(() => {
+    setTimeout(() => { isSyncing = false; }, 500);
+    updateSyncStatusUI();
+  }).catch((e) => {
+    isSyncing = false;
+    console.error('Firebase push error:', e);
+    showToast('Sync failed — check connection', true);
+  });
+}
+
+function applyRemoteState(state) {
+  if (!state || !state.version) return;
+  // Don't apply if same device just pushed
+  if (state.updatedBy === getDeviceId() && Date.now() - state.updatedAt < 2000) return;
+
+  roster = state.roster || { team1: [], team2: [] };
+  playing = state.playing || { team1: [], team2: [] };
+  playerPool = state.playerPool || DEFAULT_PLAYERS.map(n => ({ name: n, t1: false, t2: false }));
+
+  if (state.screen === 'scoreboard' && state.match && state.match.battingTeam) {
+    match = state.match;
+    history = state.history || [];
+    // Restore object references
+    if (match.striker && match.batsmen) {
+      match.striker = match.batsmen.find(b => b.name === match.striker.name) || match.striker;
+      match.nonStriker = match.batsmen.find(b => b.name === match.nonStriker.name) || match.nonStriker;
+    }
+    if (match.currentBowler && match.allBowlers) {
+      match.currentBowler = match.allBowlers.find(b => b.name === match.currentBowler.name) || match.currentBowler;
+    }
+    hideAllScreens();
+    document.getElementById('scoreboard').style.display = 'block';
+    document.getElementById('maxOvers').textContent = match.totalOvers;
+    if (match.matchOver) showResult();
+    _origUpdateDisplay();
+  } else if (state.screen === 'playerRoster') {
+    hideAllScreens();
+    document.getElementById('playerRoster').style.display = 'block';
+    renderPool();
+  } else if (state.screen === 'teamSelection') {
+    hideAllScreens();
+    document.getElementById('teamSelection').style.display = 'block';
+  } else {
+    hideAllScreens();
+    document.getElementById('setup').style.display = 'block';
+  }
+
+  // Also save locally
+  localSave();
+  updateSyncStatusUI();
+}
+
+function getDeviceId() {
+  let id = localStorage.getItem('cricketScorer_deviceId');
+  if (!id) {
+    id = 'dev_' + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem('cricketScorer_deviceId', id);
+  }
+  return id;
+}
+
+function updateSyncStatusUI() {
+  const el = document.getElementById('syncStatus');
+  if (liveRoomId) {
+    el.textContent = '🟢 Live synced · ' + new Date().toLocaleTimeString();
+  } else {
+    el.textContent = 'Local only — tap "Go Live" to sync';
+  }
+}
+
+function localSave() {
   try {
     const state = {
       match: match,
@@ -1135,8 +1300,15 @@ function autoSave() {
       version: 3
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    document.getElementById('syncStatus').textContent = 'Auto-saved · ' + new Date().toLocaleTimeString();
-  } catch(e) { /* quota exceeded — ignore */ }
+  } catch(e) {}
+}
+
+function autoSave() {
+  localSave();
+  if (liveRoomId && liveRef) {
+    pushStateToFirebase();
+  }
+  updateSyncStatusUI();
 }
 
 function getCurrentScreen() {
@@ -1195,90 +1367,10 @@ function hideAllScreens() {
   document.getElementById('matchHistory').style.display = 'none';
 }
 
-// --- Share / Load State (cross-device) ---
-function shareState() {
-  try {
-    const state = {
-      m: match,
-      h: history,
-      r: roster,
-      p: playing,
-      pp: playerPool,
-      s: getCurrentScreen(),
-      v: 3
-    };
-    const json = JSON.stringify(state);
-    const encoded = btoa(unescape(encodeURIComponent(json)));
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(encoded).then(() => {
-        showToast('Match state copied! Paste on other device.');
-      }).catch(() => {
-        fallbackCopy(encoded);
-      });
-    } else {
-      fallbackCopy(encoded);
-    }
-  } catch(e) {
-    showToast('Failed to share state', true);
-  }
-}
-
-function fallbackCopy(text) {
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.position = 'fixed';
-  ta.style.opacity = '0';
-  document.body.appendChild(ta);
-  ta.select();
-  try {
-    document.execCommand('copy');
-    showToast('Match state copied!');
-  } catch(e) {
-    prompt('Copy this match code:', text);
-  }
-  document.body.removeChild(ta);
-}
-
-function loadSharedState() {
-  const code = prompt('Paste the shared match code:');
-  if (!code || !code.trim()) return;
-  try {
-    const json = decodeURIComponent(escape(atob(code.trim())));
-    const state = JSON.parse(json);
-    if (!state || !state.v) { showToast('Invalid match code', true); return; }
-
-    roster = state.r || { team1: [], team2: [] };
-    playing = state.p || { team1: [], team2: [] };
-    playerPool = state.pp || [];
-
-    if (state.s === 'scoreboard' && state.m && state.m.battingTeam) {
-      match = state.m;
-      history = state.h || [];
-      if (match.striker && match.batsmen) {
-        match.striker = match.batsmen.find(b => b.name === match.striker.name) || match.striker;
-        match.nonStriker = match.batsmen.find(b => b.name === match.nonStriker.name) || match.nonStriker;
-      }
-      if (match.currentBowler && match.allBowlers) {
-        match.currentBowler = match.allBowlers.find(b => b.name === match.currentBowler.name) || match.currentBowler;
-      }
-      hideAllScreens();
-      document.getElementById('scoreboard').style.display = 'block';
-      document.getElementById('maxOvers').textContent = match.totalOvers;
-      if (match.matchOver) showResult();
-      updateDisplay();
-    } else {
-      hideAllScreens();
-      document.getElementById('setup').style.display = 'block';
-      renderRoster(1);
-      renderRoster(2);
-    }
-    autoSave();
-    showToast('Match state loaded!');
-  } catch(e) {
-    showToast('Invalid match code', true);
-  }
-}
+// --- Share / Load State (cross-device via Firebase) ---
+// Legacy shareState/loadSharedState kept as fallback
+function shareState() { createLiveRoom(); }
+function loadSharedState() { joinLiveRoom(); }
 
 function resetMatch() {
   if (!confirm('Start a new match? Current match will be lost.')) return;
@@ -1291,114 +1383,57 @@ function resetMatch() {
   hideAllScreens();
   document.getElementById('setup').style.display = 'block';
   document.getElementById('resultBanner').classList.remove('active');
-  document.getElementById('syncStatus').textContent = 'Auto-saved locally';
-  updateGitHubCloudStatus();
+  if (liveRoomId && liveRef) {
+    pushStateToFirebase();
+  }
+  updateSyncStatusUI();
   showToast('Match reset');
 }
 
 // ===========================================
-// GitHub Repo Sync — stores history.json in repo
-// Reading: no auth needed (public repo)
-// Writing: needs a PAT with repo/contents scope
+// Firebase History Sync — no auth needed
 // ===========================================
-const GH_SETTINGS_KEY = 'cricketScorer_github';
-const GH_CONFIG = {
-  repo: 'rahuls1071/G-BCCI',
-  branch: 'main',
-  token: ['\x67\x69\x74\x68\x75\x62','pat','11ABQFFSQ0zI4MopvRg6zp','Gww3aijBzhRYnYfT3dxAA8KnlMu22XQ323IdscCgo0ALU4WYE6Fc5dEGiTh'].join('_')
-};
+const FB_HISTORY_REF = 'matchHistory';
 
-function getGitHubSettings() {
-  return GH_CONFIG;
-}
-
-function updateGitHubCloudStatus() {
-  const el = document.getElementById('cloudStatus');
-  el.textContent = `GitHub: ${GH_CONFIG.repo} ✓`;
-  el.className = 'cloud-status connected';
-}
-
-async function ghReadFile(repo, branch, path) {
-  const resp = await fetch(`https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`, {
-    headers: { 'Accept': 'application/vnd.github.v3+json' }
-  });
-  if (resp.status === 404) return null;
-  if (!resp.ok) throw new Error(`GitHub read failed: ${resp.status}`);
-  const data = await resp.json();
-  const content = atob(data.content.replace(/\n/g, ''));
-  return { content: JSON.parse(content), sha: data.sha };
-}
-
-async function ghWriteFile(repo, branch, path, content, sha, token) {
-  const body = {
-    message: `Update match history — ${new Date().toISOString().slice(0,10)}`,
-    content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))),
-    branch: branch
-  };
-  if (sha) body.sha = sha;
-  const resp = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
-    method: 'PUT',
-    headers: {
-      'Accept': 'application/vnd.github.v3+json',
-      'Authorization': `token ${token}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  });
-  if (!resp.ok) {
-    const err = await resp.json().catch(() => ({}));
-    throw new Error(err.message || `GitHub write failed: ${resp.status}`);
-  }
-  return await resp.json();
-}
-
-const GH_HISTORY_PATH = 'data/history.json';
-
-async function syncHistoryToGitHub() {
-  const s = getGitHubSettings();
-  if (!s.repo || !s.token) { showToast('GitHub config missing', true); return; }
+async function syncHistoryToFirebase() {
   if (!sqlReady || !sqlDb) { showToast('Database not ready', true); return; }
   try {
-    showToast('Pushing to GitHub...');
-    // Read existing file from repo (for sha + merge)
-    let sha = null;
-    try {
-      const existing = await ghReadFile(s.repo, s.branch, GH_HISTORY_PATH);
-      if (existing) {
-        sha = existing.sha;
-        // Merge: import any matches from GitHub we don't have locally
-        if (existing.content.matches && existing.content.matches.length) {
-          const imported = importMatchesToDB(existing.content.matches);
-          if (imported > 0) await saveDbToIndexedDB();
-        }
-      }
-    } catch(e) { /* file doesn't exist yet, will create */ }
-
+    showToast('Syncing history...');
+    // First pull any new matches from Firebase
+    const snapshot = await fbDb.ref(FB_HISTORY_REF).once('value');
+    const remote = snapshot.val();
+    if (remote && remote.matches && remote.matches.length) {
+      const imported = importMatchesToDB(remote.matches);
+      if (imported > 0) await saveDbToIndexedDB();
+    }
+    // Then push merged local history
     const data = exportMatchesAsJSON();
-    const payload = { matches: data, syncedAt: new Date().toISOString(), version: 1 };
-    await ghWriteFile(s.repo, s.branch, GH_HISTORY_PATH, payload, sha, s.token);
-
+    await fbDb.ref(FB_HISTORY_REF).set({
+      matches: data,
+      syncedAt: Date.now(),
+      version: 1
+    });
     updateHistoryCloudStatus();
-    showToast('History pushed to GitHub!');
+    showToast('History synced!');
   } catch(e) {
-    console.error('GitHub push error:', e);
-    showToast('GitHub push failed — ' + e.message, true);
+    console.error('Firebase history sync error:', e);
+    showToast('Sync failed — ' + e.message, true);
   }
 }
 
-async function pullHistoryFromGitHub() {
-  const s = getGitHubSettings();
-  if (!s.repo) { showToast('GitHub config missing', true); return; }
+async function pullHistoryFromFirebase() {
   if (!sqlReady || !sqlDb) { showToast('Database not ready', true); return; }
   try {
-    showToast('Pulling from GitHub...');
-    const existing = await ghReadFile(s.repo, s.branch, GH_HISTORY_PATH);
-    if (!existing || !existing.content.matches) { showToast('No history found in repo', true); return; }
-
-    const imported = importMatchesToDB(existing.content.matches);
+    showToast('Pulling history...');
+    const snapshot = await fbDb.ref(FB_HISTORY_REF).once('value');
+    const remote = snapshot.val();
+    if (!remote || !remote.matches || !remote.matches.length) {
+      showToast('No history found in cloud');
+      return;
+    }
+    const imported = importMatchesToDB(remote.matches);
     await saveDbToIndexedDB();
     updateHistoryCloudStatus();
-
     if (imported > 0) {
       showToast(`Imported ${imported} new match${imported > 1 ? 'es' : ''}!`);
       switchHistoryTab('matches');
@@ -1406,22 +1441,26 @@ async function pullHistoryFromGitHub() {
       showToast('Already up to date');
     }
   } catch(e) {
-    console.error('GitHub pull error:', e);
-    showToast('GitHub pull failed — ' + e.message, true);
+    console.error('Firebase history pull error:', e);
+    showToast('Pull failed — ' + e.message, true);
   }
 }
 
-function buildCloudState() {
-  return {
-    match: match,
-    history: history,
-    roster: roster,
-    playing: playing,
-    playerPool: playerPool,
-    screen: getCurrentScreen(),
-    version: 3,
-    savedAt: new Date().toISOString()
-  };
+// Auto-push history to Firebase after saving a match
+async function autoSyncHistoryToFirebase() {
+  if (!sqlReady || !sqlDb) return;
+  try {
+    const data = exportMatchesAsJSON();
+    if (data && data.length) {
+      await fbDb.ref(FB_HISTORY_REF).set({
+        matches: data,
+        syncedAt: Date.now(),
+        version: 1
+      });
+    }
+  } catch(e) {
+    console.error('Auto history sync error:', e);
+  }
 }
 
 // ===========================================
@@ -1578,6 +1617,8 @@ async function saveMatchToDB(inn1Data, inn2Data, resultText) {
 
     await saveDbToIndexedDB();
     showToast('Match saved to history!');
+    // Auto-sync to Firebase
+    autoSyncHistoryToFirebase();
   } catch(e) {
     console.error('Save match to DB error:', e);
   }
@@ -1590,8 +1631,12 @@ function showMatchHistory() {
   previousScreen = getCurrentScreen();
   hideAllScreens();
   document.getElementById('matchHistory').style.display = 'block';
-  updateHistoryCloudStatus();
-  switchHistoryTab('matches');
+  // Auto-pull latest history from Firebase
+  pullHistoryFromFirebase().then(() => {
+    switchHistoryTab('matches');
+  }).catch(() => {
+    switchHistoryTab('matches');
+  });
 }
 
 function closeMatchHistory() {
@@ -1690,8 +1735,8 @@ function viewMatchDetail(matchId) {
     </div>
     <div class="history-section">
       <h3>${m.team1} vs ${m.team2}</h3>
-      <div style="font-size:0.8em;color:#888;margin-bottom:6px;">${dateStr} · ${m.overs} overs</div>
-      <div style="color:#e94560;font-weight:700;font-size:0.95em;">${m.result}</div>
+      <div style="font-size:0.8em;color:#636e72;margin-bottom:6px;">${dateStr} · ${m.overs} overs</div>
+      <div style="color:#d63031;font-weight:700;font-size:0.95em;">${m.result}</div>
     </div>
     ${batTable(bat1, m.innings1_team, m.innings1_runs, m.innings1_wickets, m.innings1_overs)}
     ${bowlTable(bowl1, m.innings1_team)}
@@ -1776,6 +1821,7 @@ async function deleteMatch(matchId) {
   sqlDb.run("DELETE FROM bowling_scorecard WHERE match_id = ?", [matchId]);
   sqlDb.run("DELETE FROM matches WHERE id = ?", [matchId]);
   await saveDbToIndexedDB();
+  autoSyncHistoryToFirebase();
   backToMatchList();
   showToast('Match deleted');
 }
@@ -1787,12 +1833,13 @@ async function clearAllHistory() {
   sqlDb.run("DELETE FROM bowling_scorecard");
   sqlDb.run("DELETE FROM matches");
   await saveDbToIndexedDB();
+  autoSyncHistoryToFirebase();
   switchHistoryTab('matches');
   showToast('All history cleared');
 }
 
 // ===========================================
-// GitHub History Sync + Export/Import
+// Export/Import Helpers
 // ===========================================
 
 function exportMatchesAsJSON() {
@@ -1865,7 +1912,7 @@ function importMatchesToDB(matchesJSON) {
 
 function updateHistoryCloudStatus() {
   const el = document.getElementById('historyCloudStatus');
-  el.textContent = `Syncing to GitHub: ${GH_CONFIG.repo}`;
+  el.textContent = 'Synced to Firebase ✓';
   el.className = 'history-cloud-status synced';
 }
 
@@ -1884,20 +1931,12 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!restoreFromStorage()) {
     document.getElementById('setup').style.display = 'block';
   }
-  updateGitHubCloudStatus();
-  // Also check URL hash for shared state
-  if (location.hash && location.hash.length > 1) {
-    try {
-      const code = location.hash.substring(1);
-      const json = decodeURIComponent(escape(atob(code)));
-      const state = JSON.parse(json);
-      if (state && state.v) {
-        if (confirm('Load shared match from link?')) {
-          location.hash = '';
-          loadSharedState.call(null); // will use prompt — skip
-        }
-      }
-    } catch(e) { /* not a valid state hash */ }
+  // Auto-rejoin live room if previously connected
+  const savedRoom = localStorage.getItem('cricketScorer_room');
+  if (savedRoom) {
+    joinRoom(savedRoom, false);
+  } else {
+    updateSyncStatusUI();
   }
 });
 
