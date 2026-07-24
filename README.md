@@ -8,12 +8,12 @@
 ---
 
 ## 📡 Live Scoring (Real-time across devices)
-1. **Scorer** taps **🟢 Go Live** → gets a 5-letter room code (e.g. `KN4XP`)
+1. **Scorer** taps **🟢 Go Live** → gets a 5-letter match code (e.g. `KN4XP`)
 2. Share the code in the group
-3. Everyone else taps **📡 Join Room** → enters the code
+3. Everyone else taps **📡 Join Match** → enters the code
 4. All devices now show live score updates instantly!
 
-> Room auto-reconnects if you close and reopen the app.
+> The match auto-reconnects if you close and reopen the app.
 
 ---
 

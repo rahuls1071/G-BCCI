@@ -221,7 +221,7 @@ select { font-size: 16px; /* prevent iOS zoom */ }
 
 <div class="sync-bar">
 <button class="btn btn-sm btn-share" onclick="createLiveRoom()">🟢 Go Live</button>
-<button class="btn btn-sm btn-load" onclick="joinLiveRoom()">📡 Join Room</button>
+<button class="btn btn-sm btn-load" onclick="joinLiveRoom()">📡 Join Match</button>
 <button class="btn btn-sm btn-sm" style="background:#dfe6e9;color:#e17055;" onclick="showMatchHistory()">📊 History</button>
 <button class="btn btn-sm btn-reset" onclick="resetMatch()">🗑 New</button>
 </div>
@@ -442,7 +442,10 @@ select { font-size: 16px; /* prevent iOS zoom */ }
 </div>
 
 <div id="matchHistory">
-  <h2 style="color:#d63031; margin-bottom:16px;">📊 Match History</h2>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+    <h2 style="color:#d63031;margin:0;">📊 Match History</h2>
+    <button class="btn btn-sm btn-primary" onclick="closeMatchHistory()" style="width:auto;margin:0;padding:8px 16px;">← Back to Match</button>
+  </div>
   <div class="history-sync-bar">
     <button class="btn btn-sm btn-sync" onclick="syncHistoryToFirebase()">🔄 Sync All</button>
     <button class="btn btn-sm btn-export" onclick="exportHistory()">📥 Export File</button>
@@ -1154,8 +1157,8 @@ function generateRoomId() {
 
 function createLiveRoom() {
   if (liveRoomId) {
-    // Already live — show room code
-    prompt('Share this room code with friends:', liveRoomId);
+    // Already live — show match code
+    prompt('Share this match code with friends:', liveRoomId);
     return;
   }
   const roomId = generateRoomId();
@@ -1163,7 +1166,7 @@ function createLiveRoom() {
 }
 
 function joinLiveRoom() {
-  const code = prompt('Enter room code:');
+  const code = prompt('Enter match code:');
   if (!code || !code.trim()) return;
   joinRoom(code.trim().toUpperCase(), false);
 }
@@ -1177,16 +1180,16 @@ function joinRoom(roomId, isCreator) {
   localStorage.setItem('cricketScorer_room', roomId);
 
   // Update UI
-  document.getElementById('cloudStatus').textContent = '🟢 Live Room: ' + roomId;
+  document.getElementById('cloudStatus').textContent = '🟢 Live Match: ' + roomId;
   document.getElementById('cloudStatus').className = 'cloud-status connected';
 
   if (isCreator) {
     // Push current state immediately
     pushStateToFirebase();
-    showToast('Live! Room: ' + roomId + ' — share this code');
-    prompt('Share this room code with friends:', roomId);
+    showToast('Live! Code: ' + roomId + ' — share with friends');
+    prompt('Share this match code with friends:', roomId);
   } else {
-    showToast('Joined room: ' + roomId);
+    showToast('Joined match: ' + roomId);
   }
 
   // Listen for real-time changes
